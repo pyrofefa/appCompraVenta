@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "435194963705",
+    "project_id": "app-compra-venta",
+    "storage_bucket": "app-compra-venta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435194963705:android:b8abe89bad04cf6b5be428",
+        "android_client_info": {
+          "package_name": "com.esteban.appcomprayventa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_A_ZZD_Vch7e-vP9mN5wmLCXZHU0_IJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

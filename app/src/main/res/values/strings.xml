@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">App Market</string>
+    <string name="item_home">Home</string>
+    <string name="item_sell">Sell</string>
+    <string name="item_chats">Chats</string>
+    <string name="item_ads">My Ads</string>
+    <string name="item_account">Account</string>
+
+    <string name="titleRL">Title</string>
+    <string name="email">Login With Email</string>
+    <string name="google">Login With Google</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
