@@ -10,6 +10,14 @@
     <string name="email">Login With Email</string>
     <string name="google">Login With Google</string>
 
+    <string name="txtLogin">Login With User</string>
+    <string name="editTextEmail">Email</string>
+    <string name="editTextPassword">Password</string>
+    <string name="btnSignIn">Sign In</string>
+
+    <string name="txtNotAccount">You do not have an account?</string>
+    <string name="txtSigUp">Sign Up</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -20,7 +20,7 @@
             android:layout_height="80dp"/>
         
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/email"
+            android:id="@+id/loginWithEmail"
             android:text="@string/email"
             android:textAllCaps="true"
             android:layout_width="match_parent"

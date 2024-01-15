@@ -2,9 +2,7 @@ package com.esteban.appcomprayventa
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import com.esteban.appcomprayventa.databinding.ActivityMainBinding
-import com.esteban.appcomprayventa.databinding.FragmentHomeBinding
 import com.esteban.appcomprayventa.fragments.accountFragment
 import com.esteban.appcomprayventa.fragments.adsFragment
 import com.esteban.appcomprayventa.fragments.chatsFragment
