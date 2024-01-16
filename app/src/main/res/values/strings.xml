@@ -18,6 +18,11 @@
     <string name="txtNotAccount">You do not have an account?</string>
     <string name="txtSigUp">Sign Up</string>
 
+    <string name="txtRegister">Register Of User</string>
+    <string name="editTextRepeatPassword">Repeat Password</string>
+    <string name="btnRegister">Register</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
