@@ -74,7 +74,7 @@ class LoginOptions : AppCompatActivity() {
                 if(resultsAuth.additionalUserInfo!!.isNewUser){
                     addInfo()
                 }else{
-                        startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this,MainActivity::class.java))
                     finishAffinity()
                 }
             }

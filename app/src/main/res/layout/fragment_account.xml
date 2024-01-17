@@ -1,18 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.accountFragment">
 
-    <com.google.android.material.button.MaterialButton
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtProfile"
+            android:text="@string/txtProfile"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ImageViewProfile"
+            android:layout_below="@+id/txtProfile"
+            android:src="@drawable/img_perfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:scaleType="centerCrop"/>
+
+        <!--Names-->
+        <TextView
+            android:id="@+id/txtNames"
+            android:text="@string/txtName"
+            android:layout_below="@+id/txtInformation"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtInformation"
+            android:layout_below="@+id/ImageViewProfile"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <!--<com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignOff"
         android:text="@string/btnSignOff"
         android:textAllCaps="true"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/m_button_height" />
+        android:layout_height="@dimen/m_button_height" />-->
 
 
-</RelativeLayout>
+</ScrollView>
