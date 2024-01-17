@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "435194963705",
+    "firebase_url": "https://app-compra-venta-default-rtdb.firebaseio.com",
     "project_id": "app-compra-venta",
     "storage_bucket": "app-compra-venta.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.esteban.appcomprayventa"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "435194963705-hp9gd1sqt04qvmmttg125g8r5jig0dco.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esteban.appcomprayventa",
+            "certificate_hash": "91386dfdc2eb7f090307043d88c232fb0f307ddb"
+          }
+        },
+        {
+          "client_id": "435194963705-601qhduuf6sc4u1tap867qudrrudmo77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD_A_ZZD_Vch7e-vP9mN5wmLCXZHU0_IJA"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435194963705-601qhduuf6sc4u1tap867qudrrudmo77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

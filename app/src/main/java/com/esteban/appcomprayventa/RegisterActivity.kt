@@ -88,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
         hasMap["phoneCode"] = ""
         hasMap["phone"] = ""
         hasMap["urlImageProfile"] = ""
-        hasMap["supplier"] = ""
+        hasMap["supplier"] = "Email"
         hasMap["writing"] = ""
         hasMap["time"] = time
         hasMap["online"] = true
