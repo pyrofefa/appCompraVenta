@@ -25,13 +25,12 @@
     <string name="editTextRepeatPassword">Repeat Password</string>
     <string name="btnRegister">Register</string>
 
-    <string name="btnSignOff">Sign Off</string>
-
     <string name="txtProfile">User Profile</string>
     <string name="txtInformation">Information:</string>
     <string name="txtName">Name:</string>
-    <string name="textViewNames">Names:</string>
+    <string name="textViewNames">Complete Names:</string>
     <string name="txtEmail">Email: </string>
+    <string name="textViewEmail">example@example.com</string>
     <string name="txtBirthday">Birthday</string>
     <string name="textViewBirthday">dd/mm/aaaa</string>
     <string name="txtMemberSince">Member Since:</string>
@@ -40,6 +39,10 @@
     <string name="textViewPhone">000-000-0000</string>
     <string name="txtAccountStatus">Account Status:</string>
     <string name="textViewAccountStatus">Not Verified</string>
+
+    <string name="txtOptions">Options</string>
+    <string name="btnEditProfile">Edit Profile</string>
+    <string name="btnSignOff">Sign Off</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="18dp"
     tools:context=".fragments.accountFragment">
 
     <RelativeLayout
@@ -30,9 +31,31 @@
             android:layout_marginTop="18dp"
             android:scaleType="centerCrop"/>
 
+        <TextView
+            android:id="@+id/txtInformation"
+            android:text="@string/txtInformation"
+            android:layout_below="@+id/ImageViewProfile"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@+id/txtInformation"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@+id/txtInformation"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <!--Names-->
         <TextView
-            android:id="@+id/txtNames"
+            android:id="@+id/txtName"
             android:text="@string/txtName"
             android:layout_below="@+id/txtInformation"
             android:layout_marginTop="15dp"
@@ -40,22 +63,135 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/txtInformation"
-            android:layout_below="@+id/ImageViewProfile"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
+            android:id="@+id/textViewNames"
+            android:text="@string/textViewNames"
+            android:layout_below="@+id/txtInformation"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <!--Email-->
+        <TextView
+            android:id="@+id/txtEmail"
+            android:text="@string/txtEmail"
+            android:layout_below="@+id/txtName"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:text="@string/textViewEmail"
+            android:layout_below="@+id/txtName"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--Birthday-->
+        <TextView
+            android:id="@+id/txtBirthday"
+            android:text="@string/txtBirthday"
+            android:layout_below="@+id/txtEmail"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textViewBirthday"
+            android:text="@string/textViewBirthday"
+            android:layout_below="@+id/txtEmail"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--Member Since-->
+        <TextView
+            android:id="@+id/txtMemberSince"
+            android:text="@string/txtMemberSince"
+            android:layout_below="@+id/txtBirthday"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textViewMemberSince"
+            android:text="@string/textViewMemberSince"
+            android:layout_below="@+id/txtBirthday"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <!--Phone-->
+        <TextView
+            android:id="@+id/txtPhone"
+            android:text="@string/txtPhone"
+            android:layout_below="@+id/txtMemberSince"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textViewPhone"
+            android:text="@string/textViewPhone"
+            android:layout_below="@+id/txtMemberSince"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <!--Account Status-->
+        <TextView
+            android:id="@+id/txtAccountStatus"
+            android:text="@string/txtAccountStatus"
+            android:layout_below="@+id/txtPhone"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textViewAccountStatus"
+            android:text="@string/textViewAccountStatus"
+            android:layout_below="@+id/txtPhone"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtOptions"
+            android:text="@string/txtOptions"
+            android:layout_below="@+id/txtAccountStatus"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditProfile"
+            android:text="@string/btnEditProfile"
+            android:layout_below="@id/txtOptions"
+            android:textAllCaps="true"
+            app:icon="@drawable/ic_edit"
+            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="@dimen/m_button_height" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignOff"
+            android:text="@string/btnSignOff"
+            android:textAllCaps="true"
+            android:layout_below="@id/btnEditProfile"
+            app:icon="@drawable/ic_sign_off"
+            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="@dimen/m_button_height" />
+
     </RelativeLayout>
-
-    <!--<com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSignOff"
-        android:text="@string/btnSignOff"
-        android:textAllCaps="true"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/m_button_height" />-->
-
-
 </ScrollView>
