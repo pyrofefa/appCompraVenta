@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".EditProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/txtEditProfile"
+            android:text="@string/txtEditProfile"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!--Image profile-->
+        <RelativeLayout
+            android:id="@+id/relativeLayoutProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtEditProfile"
+            android:layout_marginTop="15dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp">
+
+
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:src="@drawable/img_perfil"
+                android:scaleType="centerCrop"
+                android:layout_width="120dp"
+                android:layout_height="120dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingButtonChangeImg"
+                android:layout_alignParentEnd="true"
+                app:fabSize="mini"
+                android:src="@drawable/ic_selected_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </RelativeLayout>
+
+        <!--names-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutNames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutProfile"
+            android:layout_marginTop="10dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp">
+
+            <EditText
+                android:id="@+id/editTextNames"
+                android:hint="@string/editTextNames"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Birthday-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayoutNames"
+            android:layout_marginTop="10dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp">
+
+            <EditText
+                android:id="@+id/editTextBirthday"
+                android:hint="@string/editTextBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Phone-->
+        <RelativeLayout
+            android:id="@+id/relativeLayoutPhoneCode"
+            android:layout_below="@+id/textInputLayoutBirthday"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/codeSelect"
+                android:gravity="center"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_rememberLastSelection="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--Phone Number-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/codeSelect"
+                android:layout_marginTop="10dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp">
+
+                <EditText
+                    android:id="@+id/editTextPhone"
+                    android:hint="@string/editTextPhone"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditProfile"
+            android:text="@string/btnEditProfile"
+            android:textAllCaps="true"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/relativeLayoutPhoneCode"
+            android:layout_marginTop="15dp"
+            app:icon="@drawable/ic_edit"
+            android:layout_width="200dp"
+            android:layout_height="@dimen/m_button_height" />
+
+    </RelativeLayout>
+</RelativeLayout>

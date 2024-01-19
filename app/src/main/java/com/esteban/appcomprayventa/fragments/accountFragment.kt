@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.esteban.appcomprayventa.Constants
+import com.esteban.appcomprayventa.EditProfileActivity
 import com.esteban.appcomprayventa.LoginOptions
 import com.esteban.appcomprayventa.R
 import com.esteban.appcomprayventa.databinding.FragmentAccountBinding
@@ -41,6 +42,10 @@ class accountFragment : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         readInfo()
+
+        binding.btnEditProfile.setOnClickListener {
+            startActivity(Intent(mContext, EditProfileActivity::class.java))
+        }
 
         binding.btnSignOff.setOnClickListener {
             firebaseAuth.signOut()

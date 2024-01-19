@@ -44,6 +44,15 @@
     <string name="btnEditProfile">Edit Profile</string>
     <string name="btnSignOff">Sign Off</string>
 
+    <!--Edit Profile-->
+    <string name="txtEditProfile">Edit Profile</string>
+    <string name="editTextNames">Names</string>
+    <string name="editTextBirthday">Birthday</string>
+    <string name="phoneCode">+00</string>
+    <string name="editTextPhone">Phone</string>
+    <string name="btnEdit">Edit</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
