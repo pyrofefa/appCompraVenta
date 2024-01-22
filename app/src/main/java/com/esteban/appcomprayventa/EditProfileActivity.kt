@@ -41,8 +41,32 @@ class EditProfileActivity : AppCompatActivity() {
 
         loadInfo()
 
+        binding.btnEditProfile.setOnClickListener {
+            validateInfo()
+        }
+
         binding.floatingButtonChangeImg.setOnClickListener {
             selectImageFrom()
+        }
+    }
+    private var names = "";
+    private var birthday = "";
+    private var code = "";
+    private var phone = "";
+    private fun validateInfo() {
+        names = binding.editTextNames.text.toString().trim()
+        birthday = binding.editTextBirthday.text.toString().trim()
+        code = binding.codeSelect.selectedCountryCodeWithPlus
+        phone = binding.editTextPhone.text.toString().trim()
+
+        if (names.isEmpty()){
+            Toast.makeText(this, "Enter Names", Toast.LENGTH_SHORT).show()
+        }else if (birthday.isEmpty()){
+            Toast.makeText(this, "Enter Birthday", Toast.LENGTH_SHORT).show()
+        }else if (code.isEmpty()){
+            Toast.makeText(this, "Select Code", Toast.LENGTH_SHORT).show()
+        }else if(phone.isEmpty()){
+            Toast.makeText(this, "Enter Phone", Toast.LENGTH_SHORT).show()
         }
     }
 
