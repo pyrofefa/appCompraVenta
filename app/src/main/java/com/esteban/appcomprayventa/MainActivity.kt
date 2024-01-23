@@ -3,6 +3,7 @@ package com.esteban.appcomprayventa
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.esteban.appcomprayventa.ads.CreateAdsActivity
 import com.esteban.appcomprayventa.databinding.ActivityMainBinding
 import com.esteban.appcomprayventa.fragments.accountFragment
 import com.esteban.appcomprayventa.fragments.adsFragment
@@ -48,6 +49,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this,CreateAdsActivity::class.java ))
+        }
+
     }
     private fun checkSession(){
         if(firebaseAuth.currentUser == null) {

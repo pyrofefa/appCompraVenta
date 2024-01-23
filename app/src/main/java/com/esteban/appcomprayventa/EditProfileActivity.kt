@@ -67,7 +67,33 @@ class EditProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "Select Code", Toast.LENGTH_SHORT).show()
         }else if(phone.isEmpty()){
             Toast.makeText(this, "Enter Phone", Toast.LENGTH_SHORT).show()
+        }else{
+            updateInfo()
         }
+    }
+
+    private fun updateInfo() {
+        progressDialog.setMessage("Upload Information")
+        progressDialog.show()
+
+        val hasMap : HashMap<String, Any> = HashMap()
+        hasMap["name"] = "${names}"
+        hasMap["birthdate"] = "${birthday}"
+        hasMap["phoneCode"] = "${code}"
+        hasMap["phone"] = "${phone}"
+
+        val ref = FirebaseDatabase.getInstance().getReference("users")
+        ref.child(firebaseAuth.uid!!)
+            .updateChildren(hasMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                Toast.makeText(applicationContext, "Data update", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener { error ->
+                progressDialog.dismiss()
+                Toast.makeText(applicationContext, "${error.message}", Toast.LENGTH_SHORT).show()
+            }
+
+
     }
 
     private fun loadInfo() {
