@@ -6,6 +6,23 @@ import java.util.Locale
 
 object Constants {
 
+    const val adsAvailable = "available"
+    const val adsSold = "Sold"
+
+    var categories = arrayOf(
+        "Mobile",
+        "Computer",
+        "Vehicles",
+        "Book",
+        "Sports"
+    )
+
+    var conditios = arrayOf(
+        "New",
+        "Used",
+        "Renewed"
+    )
+
     fun timeToDevice() : Long {
       return System.currentTimeMillis()
     }
