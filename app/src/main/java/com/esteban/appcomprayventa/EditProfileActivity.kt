@@ -238,7 +238,6 @@ class EditProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, "permission storage denied", Toast.LENGTH_SHORT).show()
             }
         }
-
     private val resultCameraActivityResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -255,6 +254,7 @@ class EditProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show()
             }
         }
+
 
     private fun galleryImage() {
         val intent = Intent(Intent.ACTION_PICK)
