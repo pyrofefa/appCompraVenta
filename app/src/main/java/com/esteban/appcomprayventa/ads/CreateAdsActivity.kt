@@ -20,6 +20,8 @@ import com.esteban.appcomprayventa.Models.SelectImageModel
 import com.esteban.appcomprayventa.R
 import com.esteban.appcomprayventa.databinding.ActivityCreateAdsBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import java.net.URI
 
 class CreateAdsActivity : AppCompatActivity() {
@@ -51,8 +53,13 @@ class CreateAdsActivity : AppCompatActivity() {
 
         imageSelectedArrayList = ArrayList()
         loadImages()
+
         binding.addImage.setOnClickListener {
             showOptions()
+        }
+
+        binding.btnCreateAds.setOnClickListener {
+            validateInfo()
         }
 
     }
@@ -112,7 +119,7 @@ class CreateAdsActivity : AppCompatActivity() {
                 val time = "${Constants.timeToDevice()}"
                 val modelImageSelected = SelectImageModel(
                     time, imageUri, null, false)
-
+                imageSelectedArrayList.add(modelImageSelected)
                 loadImages()
             }else {
                 Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show()
@@ -125,6 +132,7 @@ class CreateAdsActivity : AppCompatActivity() {
                 val time = "${Constants.timeToDevice()}"
                 val modelImageSelected = SelectImageModel(
                     time, imageUri, null, false)
+                imageSelectedArrayList.add(modelImageSelected)
                 loadImages()
             } else {
                 Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show()
@@ -186,20 +194,98 @@ class CreateAdsActivity : AppCompatActivity() {
         title = binding.editTextTitle.text.toString().trim()
         description = binding.editTextDescription.text.toString().trim()
 
-        latitude = binding.editTextPhone.text.toString().trim()
-        longitude = binding.editTextPhone.text.toString().trim()
+       // latitude = binding.editTextPhone.text.toString().trim()
+       // longitude = binding.editTextPhone.text.toString().trim()
 
-
-        if (names.isEmpty()){
-            Toast.makeText(this, "Enter Names", Toast.LENGTH_SHORT).show()
-        }else if (birthday.isEmpty()){
-            Toast.makeText(this, "Enter Birthday", Toast.LENGTH_SHORT).show()
-        }else if (code.isEmpty()){
-            Toast.makeText(this, "Select Code", Toast.LENGTH_SHORT).show()
-        }else if(phone.isEmpty()){
-            Toast.makeText(this, "Enter Phone", Toast.LENGTH_SHORT).show()
+        if (brand.isEmpty()){
+            binding.editTextBrand.error = "Enter a brand"
+            binding.editTextBrand.requestFocus()
+        }else if(category.isEmpty()){
+            binding.autoCompleCategory.error = "Enter a category"
+            binding.autoCompleCategory.requestFocus()
+        }else if(condition.isEmpty()){
+            binding.autocompleteCondition.error = "Enter a condition"
+            binding.autocompleteCondition.requestFocus()
+        }else if(price.isEmpty()){
+            binding.editTextPrice.error = "Enter a price"
+            binding.editTextPrice.requestFocus()
+        }else if(title.isEmpty()){
+            binding.editTextTitle.error = "Enter a Title"
+            binding.editTextTitle.requestFocus()
+        }else if(description.isEmpty()) {
+            binding.editTextDescription.error = "Enter a description"
+            binding.editTextDescription.requestFocus()
+        }else if(imageUri == null) {
+            Toast.makeText(this, "Add at least one image", Toast.LENGTH_SHORT).show()
         }else{
-            updateInfo()
+            addADS()
+        }
+    }
+
+    private fun addADS() {
+        progressDialog.setMessage("Add ads")
+        progressDialog.show()
+
+        val time = Constants.timeToDevice()
+        val ref = FirebaseDatabase.getInstance().getReference("ads")
+        val keyId = ref.push().key
+
+        val hashMap = HashMap<String, Any>()
+        hashMap["id"] = "${keyId}"
+        hashMap["uid"] = "${firebaseAuth.uid}"
+        hashMap["brand"] = "${brand}"
+        hashMap["category"] = "${category}"
+        hashMap["condition"] = "${condition}"
+        hashMap["direction"] = "${direction}"
+        hashMap["price"] = "${price}"
+        hashMap["title"] = "${title}"
+        hashMap["description"] = "${description}"
+        hashMap["status"] = "${Constants.adsAvailable}"
+        hashMap["time"] = "${time}"
+        hashMap["latitude"] = "${latitude}"
+        hashMap["longitude"] = "${longitude}"
+
+        ref.child(keyId!!)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                loadImagesStorages(keyId)
+            }.addOnFailureListener {error->
+                progressDialog.dismiss()
+                Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+    private fun loadImagesStorages(keyId: String) {
+        for (i in imageSelectedArrayList.indices) {
+            val modelImageSelected = imageSelectedArrayList[i]
+            val nameImage = modelImageSelected.id
+            val pathImage = "ADS/$nameImage"
+
+            val storageReference = FirebaseStorage.getInstance().getReference(pathImage)
+            storageReference.putFile(modelImageSelected.imageUri!!)
+                .addOnSuccessListener { taskSnapshot ->
+                    val uriTask = taskSnapshot.storage.downloadUrl
+                    while (!uriTask.isSuccessful);
+                    val urlImgLoaded = uriTask.result
+
+                    if (uriTask.isSuccessful){
+                        val hashMap = HashMap<String, Any>()
+                        hashMap["id"] = "${modelImageSelected.imageUri}"
+                        hashMap["imageUrl"] = "$urlImgLoaded"
+
+                        val ref = FirebaseDatabase.getInstance().getReference("ads")
+                        ref.child(keyId).child("images")
+                            .child(nameImage)
+                            .updateChildren(hashMap)
+                    }
+                    progressDialog.dismiss()
+                    onBackPressedDispatcher.onBackPressed()
+                    Toast.makeText(this, "Add ADS", Toast.LENGTH_SHORT).show()
+
+                }.addOnFailureListener { error ->
+                    progressDialog.dismiss()
+                    Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }
