@@ -18,6 +18,7 @@ import com.esteban.appcomprayventa.Adapters.selectImageAdapter
 import com.esteban.appcomprayventa.Constants
 import com.esteban.appcomprayventa.Models.SelectImageModel
 import com.esteban.appcomprayventa.R
+import com.esteban.appcomprayventa.SelectLocationActivity
 import com.esteban.appcomprayventa.databinding.ActivityCreateAdsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -56,6 +57,11 @@ class CreateAdsActivity : AppCompatActivity() {
 
         binding.addImage.setOnClickListener {
             showOptions()
+        }
+
+        binding.autocompleteLocation.setOnDismissListener {
+            startActivity(Intent(this, SelectLocationActivity::class.java))
+            selectedLocationActivityResultLauncher.launch(intent)
         }
 
         binding.btnCreateAds.setOnClickListener {
@@ -221,6 +227,20 @@ class CreateAdsActivity : AppCompatActivity() {
             addADS()
         }
     }
+    private val selectedLocationActivityResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+        { result ->
+            if(result.resultCode == Activity.RESULT_OK){
+                val data = result.data
+                if (data != null) {
+                    latitude = data.getDoubleExtra("latitude",0.0)
+                    longitude = data.getDoubleExtra("longitude",0.0)
+                    direction = data.getStringExtra("direction") ?: ""
+
+                }
+            }
+        }
+
 
     private fun addADS() {
         progressDialog.setMessage("Add ads")
@@ -289,3 +309,4 @@ class CreateAdsActivity : AppCompatActivity() {
         }
     }
 }
+

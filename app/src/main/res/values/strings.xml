@@ -2,6 +2,7 @@
     <string name="app_name">App Market</string>
 
     <string name="default_web_client_id">435194963705-601qhduuf6sc4u1tap867qudrrudmo77.apps.googleusercontent.com</string>
+    <string name="my_google_maps_api_key">AIzaSyDduBq7IHJPacQ1Y4Q9tQzGXS2lwdQ8daA</string>
 
     <string name="item_home">Home</string>
     <string name="item_sell">Sell</string>
